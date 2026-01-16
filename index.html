@@ -1,0 +1,601 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Emir Otomotiv Oto Kiralama | Düzce Merkez</title>
+  <meta name="description" content="Emir Otomotiv Oto Kiralama - Düzce/Merkez. Araç filosu: Passat, Kuga, Egea, Clio, Peugeot 301, Citroen C-Elysée, Megane 4, Mercedes A200, Stepway." />
+
+  <style>
+    :root{
+      --bg:#0b0f17;
+      --card:#121a29;
+      --text:#eaf0ff;
+      --muted:#aebad6;
+      --line: rgba(255,255,255,.10);
+      --accent:#ff2b5a;
+      --accent2:#19c2ff;
+      --good:#32f5a6;
+      --shadow: 0 18px 55px rgba(0,0,0,.55);
+      --r: 18px;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:var(--sans);
+      color:var(--text);
+      background:
+        radial-gradient(1200px 680px at 15% 5%, rgba(255,43,90,.20), transparent 55%),
+        radial-gradient(900px 600px at 85% 10%, rgba(25,194,255,.16), transparent 55%),
+        radial-gradient(900px 700px at 55% 90%, rgba(50,245,166,.10), transparent 60%),
+        linear-gradient(180deg, #070a12, var(--bg));
+      min-height:100vh;
+    }
+    a{color:inherit; text-decoration:none}
+    .wrap{max-width:1150px; margin:0 auto; padding:18px 16px;}
+    header{
+      position:sticky; top:0; z-index:50;
+      background: rgba(11,15,23,.72);
+      backdrop-filter: blur(10px);
+      border-bottom:1px solid var(--line);
+    }
+    .topbar{display:flex; align-items:center; justify-content:space-between; gap:14px;}
+    .brand{display:flex; align-items:center; gap:12px; min-width: 260px;}
+    .logo{
+      height:46px; width:auto;
+      border-radius: 12px;
+      background: rgba(255,255,255,.03);
+      border:1px solid rgba(255,255,255,.10);
+      padding:6px 10px;
+    }
+    .brandtext{display:flex; flex-direction:column; gap:2px;}
+    .brandtext strong{letter-spacing:.02em}
+    .brandtext span{color:var(--muted); font-size:12px}
+    .actions{display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end}
+    .btn{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:10px 12px;
+      border-radius: 14px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.04);
+      color:var(--text);
+      font-weight:1000;
+      font-size:13px;
+      cursor:pointer;
+      transition: .15s transform, .15s background, .15s border;
+      user-select:none;
+    }
+    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.06);}
+    .btn.accent{
+      border-color: rgba(255,43,90,.55);
+      background: rgba(255,43,90,.10);
+      box-shadow: 0 0 0 3px rgba(255,43,90,.12);
+    }
+    .btn.cyan{
+      border-color: rgba(25,194,255,.55);
+      background: rgba(25,194,255,.10);
+      box-shadow: 0 0 0 3px rgba(25,194,255,.12);
+    }
+    .btn.good{
+      border-color: rgba(50,245,166,.55);
+      background: rgba(50,245,166,.10);
+      box-shadow: 0 0 0 3px rgba(50,245,166,.12);
+    }
+
+    /* HERO */
+    .hero{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:16px;
+      margin-top: 18px;
+    }
+    @media (max-width: 920px){ .hero{grid-template-columns:1fr;} }
+    .card{
+      background: linear-gradient(180deg, rgba(18,26,41,.86), rgba(15,23,38,.86));
+      border:1px solid var(--line);
+      border-radius: var(--r);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .card .head{
+      padding:14px 16px;
+      border-bottom:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      display:flex; justify-content:space-between; align-items:flex-start; gap:10px;
+    }
+    .card .body{padding:14px 16px;}
+    h1{margin:0; font-size:22px; letter-spacing:.02em; line-height:1.25}
+    .muted{color:var(--muted); font-size:13px; line-height:1.55}
+    .pill{
+      font-family:var(--mono);
+      font-size:12px;
+      padding:7px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.20);
+      color: rgba(234,240,255,.92);
+      white-space:nowrap;
+    }
+    .grid2{display:grid; grid-template-columns: 1fr 1fr; gap:12px;}
+    @media (max-width: 520px){ .grid2{grid-template-columns:1fr;} }
+    .info{
+      border:1px solid rgba(255,255,255,.12);
+      border-radius: 16px;
+      background: rgba(255,255,255,.03);
+      padding:12px;
+    }
+    .info .k{color:var(--muted); font-size:12px; text-transform:uppercase; letter-spacing:.06em; font-weight:1000}
+    .info .v{margin-top:6px; font-weight:1000}
+    .sep{height:1px; background: var(--line); margin:14px 0;}
+
+    /* Cars */
+    .sectionTitle{
+      display:flex; align-items:flex-end; justify-content:space-between; gap:10px;
+      margin: 18px 0 10px;
+    }
+    .sectionTitle h2{margin:0; font-size:16px; letter-spacing:.06em; text-transform:uppercase}
+    .searchRow{display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end;}
+    input, select{
+      background: rgba(0,0,0,.25);
+      border:1px solid rgba(255,255,255,.14);
+      border-radius: 14px;
+      padding:10px 12px;
+      color: var(--text);
+      outline:none;
+      font-size:13px;
+      min-width: 220px;
+    }
+    input:focus, select:focus{
+      border-color: rgba(25,194,255,.55);
+      box-shadow: 0 0 0 3px rgba(25,194,255,.12);
+    }
+
+    .cars{display:grid; grid-template-columns: repeat(3, 1fr); gap:12px;}
+    @media (max-width: 980px){ .cars{grid-template-columns: repeat(2,1fr);} }
+    @media (max-width: 620px){ .cars{grid-template-columns: 1fr;} }
+
+    .car{
+      border:1px solid rgba(255,255,255,.12);
+      border-radius: 18px;
+      background: rgba(255,255,255,.03);
+      overflow:hidden;
+      cursor:pointer;
+      transition: .15s transform, .15s background, .15s border;
+      display:flex; flex-direction:column;
+      min-height: 290px;
+    }
+    .car:hover{transform: translateY(-2px); background: rgba(255,255,255,.05); border-color: rgba(25,194,255,.35);}
+    .thumb{
+      height: 170px;
+      position:relative;
+      border-bottom:1px solid rgba(255,255,255,.10);
+      overflow:hidden;
+      background: rgba(0,0,0,.18);
+    }
+    .thumb img{
+      width:100%; height:100%;
+      object-fit:cover;
+      display:block;
+    }
+    .tag{
+      position:absolute; top:10px; left:10px;
+      font-family:var(--mono);
+      font-size:12px;
+      padding:6px 10px;
+      border-radius: 999px;
+      border:1px solid rgba(255,255,255,.16);
+      background: rgba(0,0,0,.40);
+      backdrop-filter: blur(6px);
+    }
+    .tag.right{left:auto; right:10px;}
+    .carBody{padding:12px 12px 14px; display:flex; flex-direction:column; gap:8px; flex:1;}
+    .carName{font-weight:1000; letter-spacing:.02em}
+    .mini{color:var(--muted); font-size:12px; line-height:1.35}
+    .priceRow{
+      margin-top:auto;
+      display:flex; align-items:center; justify-content:space-between; gap:10px;
+      border-top:1px solid rgba(255,255,255,.10);
+      padding-top:10px;
+    }
+    .price{font-family: var(--mono); font-size:13px; color: rgba(234,240,255,.92);}
+
+    /* Modal */
+    .modalBack{
+      position:fixed; inset:0;
+      background: rgba(0,0,0,.62);
+      backdrop-filter: blur(6px);
+      display:none;
+      align-items:center; justify-content:center;
+      padding:18px;
+      z-index: 100;
+    }
+    .modal{
+      width:min(980px, 100%);
+      border-radius: 20px;
+      background: linear-gradient(180deg, rgba(18,26,41,.96), rgba(15,23,38,.96));
+      border:1px solid rgba(255,255,255,.14);
+      box-shadow: 0 24px 90px rgba(0,0,0,.75);
+      overflow:hidden;
+    }
+    .modalHead{
+      padding:14px 16px;
+      border-bottom:1px solid rgba(255,255,255,.10);
+      display:flex; align-items:flex-start; justify-content:space-between; gap:10px;
+      background: rgba(255,255,255,.03);
+    }
+    .x{
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.04);
+      color:var(--text);
+      width:40px; height:40px;
+      border-radius: 14px;
+      cursor:pointer;
+      font-weight:1000;
+      font-size:16px;
+    }
+    .modalBody{
+      padding:14px 16px 16px;
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:14px;
+    }
+    @media (max-width: 900px){ .modalBody{grid-template-columns:1fr;} }
+
+    .bigImg{
+      height: 300px;
+      border-radius: 18px;
+      border:1px solid rgba(255,255,255,.12);
+      overflow:hidden;
+      background: rgba(0,0,0,.18);
+      position:relative;
+    }
+    .bigImg img{width:100%; height:100%; object-fit:cover; display:block;}
+    .specs{
+      border:1px solid rgba(255,255,255,.12);
+      border-radius: 18px;
+      padding:12px;
+      background: rgba(255,255,255,.03);
+    }
+    .specs h3{margin:0 0 8px; font-size:13px; letter-spacing:.06em; text-transform:uppercase}
+    .specList{display:grid; grid-template-columns: 1fr 1fr; gap:10px;}
+    @media (max-width: 520px){ .specList{grid-template-columns:1fr;} }
+    .spec{
+      border:1px solid rgba(255,255,255,.10);
+      border-radius: 14px;
+      background: rgba(0,0,0,.20);
+      padding:10px;
+    }
+    .spec .k{color:var(--muted); font-size:11px; text-transform:uppercase; letter-spacing:.06em; font-weight:1000}
+    .spec .v{margin-top:6px; font-weight:1000}
+    .contactBox{
+      margin-top:12px;
+      border:1px dashed rgba(255,255,255,.18);
+      border-radius: 18px;
+      padding:12px;
+      background: rgba(0,0,0,.18);
+      font-size:13px;
+      line-height:1.5;
+    }
+    footer{margin: 22px 0 10px; color: rgba(234,240,255,.45); font-size:12px; text-align:center;}
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="topbar">
+      <div class="brand">
+        <img class="logo" src="logo.jpg" alt="Emir Otomotiv Oto Kiralama Logo">
+        <div class="brandtext">
+          <strong>Emir Otomotiv Oto Kiralama</strong>
+          <span>Düzce / Merkez • Hızlı Rezervasyon</span>
+        </div>
+      </div>
+
+      <div class="actions">
+        <a class="btn good" href="tel:+905079871518">📞 Ara</a>
+        <a class="btn accent" id="btnWp" target="_blank" rel="noopener">💬 WhatsApp</a>
+        <a class="btn cyan" href="#araclar">🚗 Araçlar</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="hero">
+    <div class="card">
+      <div class="head">
+        <div>
+          <h1>Düzce’de Profesyonel Oto Kiralama</h1>
+          <div class="muted">
+            Araca tıklayın → <b>özellikler + fiyat</b> açılır.<br>
+            Tüm araçlar: <b>4500₺ / Gün</b> (şimdilik).
+          </div>
+        </div>
+        <div class="pill">0507 987 15 18</div>
+      </div>
+      <div class="body">
+        <div class="grid2">
+          <div class="info">
+            <div class="k">Adres</div>
+            <div class="v">Düzce / Merkez<br>Mimar Sinan Cd. Güler İş Merkezi</div>
+          </div>
+          <div class="info">
+            <div class="k">Hızlı Talep</div>
+            <div class="v">WhatsApp’tan 1 tıkla<br>rezervasyon mesajı</div>
+          </div>
+          <div class="info">
+            <div class="k">Günlük Fiyat</div>
+            <div class="v"><b>4500₺ / Gün</b><br>(şimdilik tüm araçlar)</div>
+          </div>
+          <div class="info">
+            <div class="k">Araçlar</div>
+            <div class="v">Passat • Kuga • Stepway • Clio<br>301 • C-Elysée • Megane 4</div>
+          </div>
+        </div>
+        <div class="sep"></div>
+        <div class="muted">
+          Net müsaitlik ve teslim detayları için WhatsApp’tan yazabilirsiniz.
+        </div>
+      </div>
+    </div>
+
+    <aside class="card">
+      <div class="head">
+        <div>
+          <div style="font-weight:1000; letter-spacing:.06em; text-transform:uppercase; font-size:13px;">Hızlı Rezervasyon</div>
+          <div class="muted">Araç seç → WhatsApp mesajı otomatik dolsun.</div>
+        </div>
+        <div class="pill">Hızlı İletişim</div>
+      </div>
+      <div class="body">
+        <div class="muted">
+          ✅ Tarih aralığı<br>
+          ✅ Teslim alma / bırakma<br>
+          ✅ Seçtiğiniz araç<br>
+          ✅ Ad–Soyad
+        </div>
+        <div class="sep"></div>
+        <a class="btn accent" id="btnWp2" target="_blank" rel="noopener">WhatsApp’tan Talep Gönder</a>
+      </div>
+    </aside>
+  </section>
+
+  <div class="sectionTitle" id="araclar">
+    <h2>Araçlarımız</h2>
+    <div class="searchRow">
+      <input id="q" type="text" placeholder="Araç ara (Passat, Kuga, Clio...)" />
+      <select id="filterYear">
+        <option value="">Yıl (Hepsi)</option>
+        <option>2025</option>
+        <option>2024</option>
+        <option>2022</option>
+        <option>2021</option>
+      </select>
+    </div>
+  </div>
+
+  <section class="cars" id="carGrid"></section>
+
+  <footer>
+    © <span id="y"></span> Emir Otomotiv Oto Kiralama • Düzce/Merkez • 0507 987 15 18
+  </footer>
+
+</main>
+
+<!-- MODAL -->
+<div class="modalBack" id="mb">
+  <div class="modal" role="dialog" aria-modal="true" aria-label="Araç detayları">
+    <div class="modalHead">
+      <div>
+        <div id="mTitle" style="font-weight:1000; font-size:16px; letter-spacing:.02em;">Araç</div>
+        <div id="mSub" class="muted" style="margin-top:4px;">Detaylar</div>
+      </div>
+      <button class="x" id="mx" aria-label="Kapat">✕</button>
+    </div>
+
+    <div class="modalBody">
+      <div class="bigImg">
+        <img id="mImg" alt="Araç görseli" />
+        <div class="tag" id="mTag" style="position:absolute; top:12px; left:12px;">—</div>
+        <div class="tag right" style="position:absolute; top:12px; right:12px;">4500₺/Gün</div>
+      </div>
+
+      <div>
+        <div class="specs">
+          <h3>Özellikler</h3>
+          <div class="specList" id="mSpecs"></div>
+        </div>
+
+        <div class="contactBox">
+          <div><b>Fiyat:</b> <span id="mPrice">4500₺ / Gün</span></div>
+          <div style="margin-top:8px" class="muted">
+            <b>Telefon:</b> 0507 987 15 18<br>
+            <b>Adres:</b> Düzce/Merkez Mimar Sinan Cd. Güler İş Merkezi
+          </div>
+
+          <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap;">
+            <a class="btn good" href="tel:+905079871518">📞 Ara</a>
+            <a class="btn accent" id="mWp" target="_blank" rel="noopener">💬 WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const PHONE_E164 = "+905079871518";
+  const PRICE_TEXT = "4500₺ / Gün";
+
+  function wpLink(message){
+    const txt = encodeURIComponent(message);
+    return "https://wa.me/" + PHONE_E164.replace("+","") + "?text=" + txt;
+  }
+
+  // Egea ve Mercedes A200 için (sen foto atana kadar) profesyonel placeholder SVG
+  function placeholderSVG(label){
+    const svg = `
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600">
+      <defs>
+        <linearGradient id="bg" x1="0" x2="1">
+          <stop offset="0" stop-color="#19c2ff" stop-opacity="0.25"/>
+          <stop offset="1" stop-color="#ff2b5a" stop-opacity="0.18"/>
+        </linearGradient>
+      </defs>
+      <rect width="1200" height="600" fill="#0f1726"/>
+      <rect x="40" y="40" width="1120" height="520" rx="28" fill="url(#bg)"/>
+      <path d="M210 360c40-110 130-170 300-190 130-15 380-12 520 5 130 17 210 70 250 175l20 55c10 25-8 55-35 55H205c-26 0-45-28-35-53l40-47z"
+        fill="rgba(234,240,255,0.20)"/>
+      <circle cx="360" cy="430" r="70" fill="rgba(234,240,255,0.14)"/>
+      <circle cx="900" cy="430" r="70" fill="rgba(234,240,255,0.14)"/>
+      <text x="60" y="120" fill="rgba(234,240,255,0.90)" font-family="Arial" font-size="44" font-weight="800">${label}</text>
+      <text x="60" y="170" fill="rgba(174,186,214,0.95)" font-family="Arial" font-size="22">Fotoğraf eklenecek</text>
+    </svg>`;
+    return "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svg);
+  }
+
+  const cars = [
+    { id:"passat24", name:"Volkswagen Passat", year:"2024", color:"Gümüş", tag:"2024 • Gümüş", img:"passat.jpg",
+      specs:{ "Vites":"Otomatik", "Yakıt":"Dizel/Benzin", "Kişi":"5", "Bagaj":"Büyük", "Klima":"Var", "Segment":"Sedan" } },
+
+    { id:"kuga21", name:"Ford Kuga", year:"2021", color:"Füme", tag:"2021 • Füme", img:"kuga.jpg",
+      specs:{ "Vites":"Otomatik", "Yakıt":"Benzin/Dizel", "Kişi":"5", "Bagaj":"Geniş", "Klima":"Var", "Segment":"SUV" } },
+
+    { id:"stepway25", name:"Dacia Stepway", year:"2025", color:"Yeşil-Kahverengi (Çift Renk)", tag:"2025 • Çift renk", img:"stepway.jpg",
+      specs:{ "Vites":"Otomatik/Manuel", "Yakıt":"Benzin", "Kişi":"5", "Bagaj":"Geniş", "Klima":"Var", "Segment":"Crossover" } },
+
+    { id:"clio12", name:"Renault Clio 1.2", year:"2022", color:"Beyaz", tag:"2022 • Beyaz", img:"clio.png",
+      specs:{ "Vites":"Manuel", "Yakıt":"Benzin", "Kişi":"5", "Bagaj":"Orta", "Klima":"Var", "Segment":"Hatchback" } },
+
+    { id:"megane4", name:"Renault Megane 4", year:"2022", color:"Beyaz", tag:"2022 • Beyaz", img:"megane.jpg",
+      specs:{ "Vites":"Otomatik/Manuel", "Yakıt":"Dizel/Benzin", "Kişi":"5", "Bagaj":"Geniş", "Klima":"Var", "Segment":"Sedan" } },
+
+    { id:"p301", name:"Peugeot 301", year:"2022", color:"Beyaz", tag:"2022 • Beyaz", img:"peugeot301.jpg",
+      specs:{ "Vites":"Manuel/Otomatik", "Yakıt":"Dizel/Benzin", "Kişi":"5", "Bagaj":"Büyük", "Klima":"Var", "Segment":"Sedan" } },
+
+    { id:"celysee", name:"Citroën C-Elysée", year:"2022", color:"Beyaz", tag:"2022 • Beyaz", img:"celysee.webp",
+      specs:{ "Vites":"Manuel/Otomatik", "Yakıt":"Dizel/Benzin", "Kişi":"5", "Bagaj":"Büyük", "Klima":"Var", "Segment":"Sedan" } },
+
+    { id:"egea", name:"Fiat Egea", year:"2022", color:"Beyaz", tag:"2022 • Beyaz", img:"egea.jpg",
+      specs:{ "Vites":"Manuel/Otomatik", "Yakıt":"Dizel/Benzin", "Kişi":"5", "Bagaj":"Büyük", "Klima":"Var", "Segment":"Sedan" } },
+
+    { id:"a200", name:"Mercedes A200", year:"2024", color:"Siyah", tag:"2024 • Siyah", img:"a200.jpeg",
+      specs:{ "Vites":"Otomatik", "Yakıt":"Benzin/Hibrit", "Kişi":"5", "Bagaj":"Büyük", "Klima":"Var", "Segment":"Sedan" } },
+  ];
+
+  const grid = document.getElementById("carGrid");
+  const q = document.getElementById("q");
+  const filterYear = document.getElementById("filterYear");
+
+  function isDataUri(s){ return typeof s === "string" && s.startsWith("data:"); }
+
+  function cardHTML(c){
+    const subtitle = `${c.year !== "—" ? c.year : ""} ${c.color}`.trim();
+    const imgSrc = isDataUri(c.img) ? c.img : c.img;
+    return `
+      <article class="car" data-id="${c.id}">
+        <div class="thumb">
+          <div class="tag">${c.tag}</div>
+          <div class="tag right">Detay</div>
+          <img src="${imgSrc}" alt="${c.name}">
+        </div>
+        <div class="carBody">
+          <div class="carName">${c.name}</div>
+          <div class="mini">${subtitle}</div>
+          <div class="priceRow">
+            <div class="price">${PRICE_TEXT}</div>
+            <div class="btn cyan" style="padding:8px 10px; border-radius:12px; font-size:12px;">İncele</div>
+          </div>
+        </div>
+      </article>
+    `;
+  }
+
+  function render(){
+    const term = (q.value || "").toLowerCase().trim();
+    const y = filterYear.value;
+
+    const filtered = cars.filter(c=>{
+      const hay = (c.name + " " + c.color + " " + c.tag + " " + c.year).toLowerCase();
+      const okTerm = term ? hay.includes(term) : true;
+      const okYear = y ? (c.year === y) : true;
+      return okTerm && okYear;
+    });
+
+    grid.innerHTML = filtered.map(cardHTML).join("");
+
+    grid.querySelectorAll(".car").forEach(el=>{
+      el.addEventListener("click", ()=>{
+        const id = el.getAttribute("data-id");
+        openModal(cars.find(x=>x.id===id));
+      });
+    });
+  }
+
+  // Modal
+  const mb = document.getElementById("mb");
+  const mx = document.getElementById("mx");
+  const mTitle = document.getElementById("mTitle");
+  const mSub = document.getElementById("mSub");
+  const mTag = document.getElementById("mTag");
+  const mImg = document.getElementById("mImg");
+  const mSpecs = document.getElementById("mSpecs");
+  const mPrice = document.getElementById("mPrice");
+  const mWp = document.getElementById("mWp");
+
+  function openModal(c){
+    if(!c) return;
+    mTitle.textContent = c.name;
+    mSub.textContent = `${c.year !== "—" ? c.year + " • " : ""}${c.color}`;
+    mTag.textContent = c.tag;
+    mImg.src = c.img;
+    mPrice.textContent = PRICE_TEXT;
+
+    mSpecs.innerHTML = Object.entries(c.specs).map(([k,v])=>{
+      return `<div class="spec"><div class="k">${k}</div><div class="v">${v}</div></div>`;
+    }).join("");
+
+    const msg =
+`Merhaba, Emir Otomotiv Oto Kiralama’dan "${c.name}" için bilgi almak istiyorum.
+Araç: ${c.name}
+Yıl/Renk: ${c.year} / ${c.color}
+Fiyat: ${PRICE_TEXT}
+Tarih aralığı: (yazınız)
+Teslim alma: (yazınız)
+Teslim bırakma: (yazınız)`;
+
+    mWp.href = wpLink(msg);
+    mb.style.display = "flex";
+  }
+
+  function closeModal(){ mb.style.display="none"; }
+  mx.addEventListener("click", closeModal);
+  mb.addEventListener("click", (e)=>{ if(e.target === mb) closeModal(); });
+  window.addEventListener("keydown", (e)=>{ if(e.key==="Escape") closeModal(); });
+
+  // Header WhatsApp
+  const wpMsg =
+`Merhaba, Emir Otomotiv Oto Kiralama’dan fiyat ve müsaitlik bilgisi almak istiyorum.
+Fiyat: ${PRICE_TEXT}
+Tarih aralığı: (yazınız)
+Araç: (yazınız)
+Teslim alma: (yazınız)
+Teslim bırakma: (yazınız)`;
+
+  document.getElementById("btnWp").href = wpLink(wpMsg);
+  document.getElementById("btnWp2").href = wpLink(wpMsg);
+
+  q.addEventListener("input", render);
+  filterYear.addEventListener("change", render);
+
+  document.getElementById("y").textContent = new Date().getFullYear();
+  render();
+</script>
+
+</body>
+</html>
